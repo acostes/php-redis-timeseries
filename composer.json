@@ -1,0 +1,26 @@
+{
+    "name": "acostes/php-redis-timeseries",
+    "description": "PHP library to store time series analytics data into Redis",
+    "type": "library",
+    "keywords": [
+        "nosql", "redis", "stats", "analytics", "timeseries"
+    ],
+    "require": {
+        "predis/predis": "^1.1"
+    },
+    "require-dev": {
+        "atoum/atoum": "^2.8"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Arnaud Costes",
+            "email": "arnaud.costes@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "RedisAnalytics\\": "src/"
+        }
+    }
+}
