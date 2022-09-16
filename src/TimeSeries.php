@@ -99,4 +99,18 @@ class TimeSeries
         }
         return $result;
     }
+    
+    /**
+     * Removes all the stored analytics for a specific interval
+     *
+     * @param string $key
+     * @param int $from (timestamp)
+     * @param int $to (timestamp)
+     *
+     * @return void
+     */
+    public function remove($key, $from, $to)
+    {
+        $this->client->zremrangebyscore($key, $from, $to);
+    }
 }
