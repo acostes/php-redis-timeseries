@@ -22,6 +22,9 @@ PHP library to store time series analytics data into Redis
 
     // Retrieve all data for a specific interval $from / $to
     $ts->get($myKey, $from, $to);
+    
+    // Removes all data for a specific interval $from / $to
+    $ts->remove($myKey, $from, $to);
 ```
 
 ## Dependencies ##
