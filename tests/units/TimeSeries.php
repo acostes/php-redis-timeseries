@@ -51,4 +51,19 @@ class TimeSeries extends atoum
         $this->array($result)->size->isEqualTo(1);
         $this->array($result)->hasKey($date);
     }
+    
+    public function testRemove()
+    {
+        $ts = new testedClass();
+        $key = 'test';
+        $dates = [time(), time() + 1, time() + 2];
+        array_map(function ($date) use ($ts, $key) { $ts->add($key, $date, rand()); }, $dates);
+        $result = $ts->get($key, $dates[0], $dates[2]);
+        $this->array($result)->size->isEqualTo(count($dates));
+        array_map(function ($date) use ($result) { $this->array($result)->hasKey($date); }, $dates);
+        $ts->remove($key, $dates[0], $dates[1]);
+        $result = $ts->get($key, $dates[0], $dates[2]);
+        $this->array($result)->size->isEqualTo(1);
+        $this->array($result)->hasKey($dates[2]);
+    }
 }
